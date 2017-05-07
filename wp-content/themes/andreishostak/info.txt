@@ -1,0 +1,7 @@
+db name:andreishostak
+db admin name: andreishostak
+db admin password: 2dQPadQaoXSVNUJD
+
+
+wp admin: andreishostak
+wp admin password: 3AXhAz&7t$avlysxWr
