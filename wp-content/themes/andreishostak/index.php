@@ -96,7 +96,28 @@
         </div>
     </div>
 </div>
+<div class="container no_pd">
+    <div class="row no_mg">
+        <div class="col-xs-12 no_pd">
+        <?php wp_nav_menu(
 
+            array(
+                'container' => '',
+                'menu_class' => 'menu',
+                'theme_location' => 'portfolio',
 
+            )
+
+        ); ?>
+        </div>
+    </div>
+</div>
+<?php
+
+echo '<pre>';
+echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+echo '</pre>';
+
+;?>
 <?php get_footer() ?>
 

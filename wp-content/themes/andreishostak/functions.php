@@ -84,5 +84,12 @@ add_theme_support('post-formats', array('aside', 'image', 'video'));
 		Activate woocommerce plugin
 	 ====================================================
  */
-
-
+define('BASE', 'http://andrei/');
+function openPortfolio() {
+    $str = preg_match('/category\/portfolio/',$_SERVER['REQUEST_URI']);
+    if($str == 1) {
+        header("Location:" . 'http://' . $_SERVER['HTTP_HOST']);
+        exit();
+    }
+}
+openPortfolio();
