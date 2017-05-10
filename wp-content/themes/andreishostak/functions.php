@@ -81,15 +81,51 @@ add_theme_support('post-formats', array('aside', 'image', 'video'));
 
 /*
 	 ====================================================
-		Activate woocommerce plugin
+		Activate redirect to portfolio page from portfolion menu
 	 ====================================================
  */
 define('BASE', 'http://andrei/');
 function openPortfolio() {
-    $str = preg_match('/category\/portfolio/',$_SERVER['REQUEST_URI']);
-    if($str == 1) {
-        header("Location:" . 'http://' . $_SERVER['HTTP_HOST']);
+
+    $args = array('child_of' => 5);
+    $categories = get_categories( $args );
+    foreach($categories as $category) {
+        $portfolioSubCategories[] = $category->category_nicename;
+
+    }
+    session_start();
+    $url = preg_match('/category\/portfolio/',$_SERVER['REQUEST_URI']);
+    if($url == 1 AND preg_match('/reklama/',$_SERVER['REQUEST_URI']) == 1 ) {
+        $_SESSION["sub_cat_name"] = 'reklama';
+        header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
+        exit();
+    }
+    if($url == 1 AND preg_match('/reportazhi/',$_SERVER['REQUEST_URI']) == 1 ) {
+        $_SESSION["sub_cat_name"] = 'reportazhi';
+        header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
+        exit();
+    }
+    if($url == 1 AND preg_match('/svadba/',$_SERVER['REQUEST_URI']) == 1 ) {
+        $_SESSION["sub_cat_name"] = 'svadba';
+        header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
+        exit();
+    }
+    if($url == 1 AND preg_match('/semejnye/',$_SERVER['REQUEST_URI']) == 1 ) {
+        $_SESSION["sub_cat_name"] = 'semejnye';
+        header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
+        exit();
+    }
+    if($url == 1 AND preg_match('/studiya/',$_SERVER['REQUEST_URI']) == 1 ) {
+        $_SESSION["sub_cat_name"] = 'studiya';
+        header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
+        exit();
+    }
+    if($url == 1 AND preg_match('/fotosessii/',$_SERVER['REQUEST_URI']) == 1 ) {
+        $_SESSION["sub_cat_name"] = 'fotosessii';
+        header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
         exit();
     }
 }
 openPortfolio();
+
+

@@ -114,10 +114,25 @@
 </div>
 <?php
 
+$args = array('child_of' => 5);
+$categories = get_categories( $args );
+foreach($categories as $category) {
+    $portfolioSubCategories[] = $category->category_nicename;
+
+}
+echo '<pre>';
+print_r($portfolioSubCategories);
+echo '</pre>';
+
+;?>
+<?php
+
 echo '<pre>';
 echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 echo '</pre>';
 
 ;?>
+
+
 <?php get_footer() ?>
 
