@@ -9,12 +9,15 @@ Include scripts
 function andreishostak_script_enqueue()
 {
     wp_enqueue_style('font-awesome', get_template_directory_uri() . '/font-awesome-4.7.0/css/font-awesome.css', array(), '4.7.0', 'all');
+    wp_enqueue_style('image-fallary-css', get_template_directory_uri() . '/blueimp-Bootstrap-Image-Gallery/css/blueimp-gallery.css', array(), '1.0.0', 'all');
     wp_enqueue_style('bootstrap', get_template_directory_uri() . '/styles/bootstrap.css', array(), '1.0.0', 'all');
     wp_enqueue_style('slick', get_template_directory_uri() . '/slick-1.6.0/slick/slick.css', array(), '1.6.0', 'all');
     wp_enqueue_style('slick_theme', get_template_directory_uri() . '/slick-1.6.0/slick/slick-theme.css', array(), '1.6.0', 'all');
     wp_enqueue_style('custom_style', get_template_directory_uri() . '/styles/main.css', array(), '1.0.0', 'all');
     wp_enqueue_script('slick_js', get_template_directory_uri() . '/slick-1.6.0/slick/slick.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('image-fallary-js', get_template_directory_uri() . '/blueimp-Bootstrap-Image-Gallery/js/blueimp-gallery.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('custom_js', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0.0', true);
+
 
 }
 
@@ -38,12 +41,14 @@ add_action('wp_enqueue_scripts', 'shapeSpace_include_custom_jquery');
 		Activate Google Fonts
 	 ====================================================
  */
-function load_fonts() {
+function load_fonts()
+{
     wp_register_style('et-googleFonts', 'https://fonts.googleapis.com/css?family=Roboto');
-    wp_enqueue_style( 'et-googleFonts');
+    wp_enqueue_style('et-googleFonts');
     wp_register_style('et-googleFonts', 'https://fonts.googleapis.com/css?family=Open+Sans&amp;subset=cyrillic');
-    wp_enqueue_style( 'et1-googleFonts');
+    wp_enqueue_style('et1-googleFonts');
 }
+
 add_action('wp_print_styles', 'load_fonts');
 /*
 ====================================================
@@ -63,7 +68,7 @@ add_theme_support('post-thumbnails');
 		Activate ability to change logo
 	 ====================================================
  */
-add_theme_support( 'custom-logo' );
+add_theme_support('custom-logo');
 
 /*
 	 ====================================================
@@ -85,47 +90,46 @@ add_theme_support('post-formats', array('aside', 'image', 'video'));
 	 ====================================================
  */
 define('BASE', 'http://andrei/');
-function openPortfolio() {
+/**
+ *
+ */
+function openPortfolio()
+{
+    session_start();
 
-    $args = array('child_of' => 5);
-    $categories = get_categories( $args );
-    foreach($categories as $category) {
+    $portfolioSubCategories = array();
+    $portfolioSubCategories_id = array();
+
+    $args = array('child_of' => 17);
+    $categories = get_categories($args);
+    foreach ($categories as $category) {
         $portfolioSubCategories[] = $category->category_nicename;
 
     }
-    session_start();
-    $url = preg_match('/category\/portfolio/',$_SERVER['REQUEST_URI']);
-    if($url == 1 AND preg_match('/reklama/',$_SERVER['REQUEST_URI']) == 1 ) {
-        $_SESSION["sub_cat_name"] = 'reklama';
-        header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
-        exit();
+    $categories_id = get_categories($args);
+    foreach ($categories_id as $category_id) {
+        $portfolioSubCategories_id[] = $category_id->cat_ID;
+
     }
-    if($url == 1 AND preg_match('/reportazhi/',$_SERVER['REQUEST_URI']) == 1 ) {
-        $_SESSION["sub_cat_name"] = 'reportazhi';
-        header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
-        exit();
+    $portfolioSubCategoriesInfo = array_combine($portfolioSubCategories, $portfolioSubCategories_id);
+    $_SESSION['sub_cat_info'] = $portfolioSubCategoriesInfo;
+    function insertSubCatName(array $portfolioSubCategoriesInfo)
+    {
+        foreach ($portfolioSubCategoriesInfo as $name => $id) {
+            $url = preg_match('/category\/portfolio/', $_SERVER['REQUEST_URI']);
+            if ($url == 1 AND preg_match('/' . $name . '/', $_SERVER['REQUEST_URI']) == 1) {
+                $_SESSION["sub_cat_name"] = $name;
+                $_SESSION['sub_cat_id'] = $id;
+                header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
+                exit();
+            }
+        }
+
     }
-    if($url == 1 AND preg_match('/svadba/',$_SERVER['REQUEST_URI']) == 1 ) {
-        $_SESSION["sub_cat_name"] = 'svadba';
-        header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
-        exit();
-    }
-    if($url == 1 AND preg_match('/semejnye/',$_SERVER['REQUEST_URI']) == 1 ) {
-        $_SESSION["sub_cat_name"] = 'semejnye';
-        header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
-        exit();
-    }
-    if($url == 1 AND preg_match('/studiya/',$_SERVER['REQUEST_URI']) == 1 ) {
-        $_SESSION["sub_cat_name"] = 'studiya';
-        header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
-        exit();
-    }
-    if($url == 1 AND preg_match('/fotosessii/',$_SERVER['REQUEST_URI']) == 1 ) {
-        $_SESSION["sub_cat_name"] = 'fotosessii';
-        header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
-        exit();
-    }
+
+    insertSubCatName($portfolioSubCategoriesInfo);
 }
+
 openPortfolio();
 
 

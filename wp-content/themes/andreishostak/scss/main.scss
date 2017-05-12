@@ -138,12 +138,12 @@
     margin: 0 auto;
     text-align: center;
     background: #f5f5f9;
-      .fa {
-        font-size: 70px;
-        margin-top: 28px;
-        color: $colorred;
-        cursor: pointer;
-      }
+    .fa {
+      font-size: 70px;
+      margin-top: 28px;
+      color: $colorred;
+      cursor: pointer;
+    }
 
   }
   .slider_right_triangle {
@@ -178,79 +178,87 @@
     color: $colorred;
   }
   h4 {
-    margin-top:40px;
+    margin-top: 40px;
     color: #ffffff;
-    font-family: "Open Sans",sans-serif;
+    font-family: "Open Sans", sans-serif;
     font-size: 60px;
     font-weight: 600;
     line-height: 24px;
     text-transform: uppercase;
   }
 }
+
 .services_list {
   text-align: center;
   .services_name {
     position: relative;
     color: $colordarkgrey;
-      &:after {
-        content: "";
-        display: block;
-        width: 41px;
-        height: 2px;
-        margin: 0 auto;
-        margin-top: 19px;
-        margin-bottom:19px;
-        background: $colordarkgrey;
+    &:after {
+      content: "";
+      display: block;
+      width: 41px;
+      height: 2px;
+      margin: 0 auto;
+      margin-top: 19px;
+      margin-bottom: 19px;
+      background: $colordarkgrey;
 
-      }
+    }
   }
   .service_description {
     color: $colorgrey;
   }
 }
+
 .about_me_title {
   position: relative;
-  margin-left: 15px;
+  margin-left: 30px;
   color: #6a6a6a;
-  font-family: "Open Sans",sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase;
-    &:before {
-      content: "";
-      position: absolute;
-      display: block;
-      width: 6px;
-      height: 36px;
-      background-color: $colorred;
-      top:2px;
-      left: -15px;
-    }
+  &:before {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 6px;
+    height: 36px;
+    background-color: $colorred;
+    top: 2px;
+    left: -15px;
+  }
 }
+
 .my_image_box {
   img {
     width: 100%;
     height: auto;
   }
 }
+
 .about_me_text {
   color: $colorgrey;
-  font-family: "Open Sans",sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 29px;
+    p:first-child {
+      text-indent: 1.5em;
+    }
 }
+
 .see_all_works {
   background: $colorred;
   text-transform: uppercase;
   padding: 10px 15px;
 
   a {
-      @include color-link(#fff);
-    }
-    &:hover {
-      background: $colorred !important;
-    }
+    @include color-link(#fff);
+  }
+  &:hover {
+    background: $colorred !important;
+  }
   &:active {
     background: $colorred !important;
   }
@@ -258,4 +266,105 @@
     background: $colorred !important;
   }
 
+}
+
+.gallary_img_wrapper {
+  width: 33%;
+  display: inline-block !important;
+  float: none !important;
+  font-size: 0 !important;
+  vertical-align: top;
+  margin: 20px 0;
+}
+
+/*
+  PORTFOLIO MENU
+*/
+.portfolio_menu_wrapper {
+  text-align: center;
+  ul {
+    display: inline-block;
+  }
+
+}
+
+.portfolio_menu {
+  li {
+    display: inline-block;
+    text-transform: uppercase;
+    padding: 27px 10px;
+    position: relative;
+    a {
+      @include color-link($colordarkgrey);
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Open Sans', sans-serif;
+    }
+    &:after {
+      content: "/";
+      color: $colordarkgrey;
+      right: -5px;
+      position: absolute;
+    }
+
+  }
+}
+section {
+  margin-bottom:25px;
+}
+.portfolio_title {
+  margin-top: 100px ;
+  position: relative;
+  padding-left: 20px;
+  color: $colordarkgrey;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 5px;
+      height: 27px;
+      width:4px;
+      background: $colorred;
+      top:0;
+    }
+}
+.portfolio_wrapper  {
+  p {
+    font-family: "Open Sans", sans-serif;
+    text-indent: 15px;
+    color: $colorgrey;
+    text-align: justify;
+  }
+
+}
+.gallary_img_wrapper {
+  position: relative;
+}
+.img_overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $colorred;
+  overflow: hidden;
+  width: 100%;
+  opacity: 0.8;
+  height: 0;
+  transition: .5s ease;
+  cursor: pointer;
+}
+
+.gallary_img_wrapper:hover .img_overlay {
+  height: 30%;
+}
+
+.gallary_img_wrapper i {
+  white-space: nowrap;
+  color: #fff;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }

@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="container-fluid no_pd main_slider">
+<section class="container-fluid no_pd main_slider">
     <div class="slider ">
 
         <?php
@@ -12,13 +12,7 @@
         if ($query->have_posts()) {
             while ($query->have_posts()) {
                 $query->the_post();
-                $images = get_attached_media('image', $post->ID);
-                foreach ($images as $image) { ?>
 
-                        <img src="<?php echo wp_get_attachment_image_src($image->ID, 'full')[0]; ?>" alt="">
-
-
-                <?php }
                 $gallery = get_post_gallery_images($post);
                 foreach ($gallery as $img) { ?>
                     <div class="slider-img-wrapper">
@@ -36,7 +30,7 @@
                         <div class="camera_box"><i class="fa fa-camera-retro"></i></div>
                         <div class="slider_right_triangle"></div>
                     </div>
-                    </div>
+
                 <?php }
             }
         }
@@ -45,10 +39,9 @@
 
         <?php wp_reset_postdata();; ?>
 
-
     </div>
-</div>
-<div class="container no_pd">
+    </section>
+<section class="container no_pd">
     <div class="row no_mg">
         <?php
         $args = array_reverse(array(
@@ -69,10 +62,11 @@
         <?php wp_reset_postdata();; ?>
 
     </div>
-</div>
-<div class="container no_pd">
+</section>
+<section class="container no_pd">
     <div class="row no_mg">
         <div class="col-xs-12 no_pd">
+            <h4 class="about_me_title"><?php echo get_cat_name(3);?></h4>
             <?php
             $args = array_reverse(array(
                 'cat' => '3'
@@ -90,9 +84,8 @@
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <?php if (!has_post_thumbnail()):; ?>
-                            <h4 class="about_me_title"><?php echo get_the_title(); ?></h4>
                             <div class="about_me_text"><?php echo get_the_content(); ?></div>
-                            <button  class="btn btn-default see_all_works"><a href="#">Посмотреть мои работы</a></button>
+                            <button  class="btn btn-default see_all_works"><a href="http://andrei/portfolio/">Посмотреть мои работы</a></button>
                         <?php endif; ?>
                     </div>
 
@@ -102,43 +95,27 @@
             <?php wp_reset_postdata();; ?>
         </div>
     </div>
-</div>
-<div class="container no_pd">
+</section>
+<section class="container no_pd ">
     <div class="row no_mg">
         <div class="col-xs-12 no_pd">
+            <h4 class="text-center ">Портфолио</h4>
+            <div class="center-block clearfix portfolio_menu_wrapper">
         <?php wp_nav_menu(
 
             array(
                 'container' => '',
-                'menu_class' => 'menu',
+                'menu_class' => 'portfolio_menu',
                 'theme_location' => 'portfolio',
 
             )
 
         ); ?>
+            </div>
         </div>
     </div>
-</div>
-<?php
+</section>
 
-$args = array('child_of' => 5);
-$categories = get_categories( $args );
-foreach($categories as $category) {
-    $portfolioSubCategories[] = $category->category_nicename;
-
-}
-echo '<pre>';
-print_r($portfolioSubCategories);
-echo '</pre>';
-
-;?>
-<?php
-
-echo '<pre>';
-echo 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
-echo '</pre>';
-
-;?>
 
 
 <?php get_footer() ?>
