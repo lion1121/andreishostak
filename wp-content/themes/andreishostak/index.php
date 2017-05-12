@@ -14,6 +14,13 @@
                 $query->the_post();
                 $images = get_attached_media('image', $post->ID);
                 foreach ($images as $image) { ?>
+
+                        <img src="<?php echo wp_get_attachment_image_src($image->ID, 'full')[0]; ?>" alt="">
+
+
+                <?php }
+                $gallery = get_post_gallery_images($post);
+                foreach ($gallery as $img) { ?>
                     <div class="slider-img-wrapper">
                         <div class="name_occupation_box">
                             <h3>
@@ -24,12 +31,12 @@
                             </p>
                             <h4>Photography</h4>
                         </div>
-                        <img src="<?php echo wp_get_attachment_image_src($image->ID, 'full')[0]; ?>" alt="">
+                        <img src="<?php echo $img ?>" alt="" class="img-responsive">
                         <div class="slider_left_triangle"></div>
                         <div class="camera_box"><i class="fa fa-camera-retro"></i></div>
                         <div class="slider_right_triangle"></div>
                     </div>
-
+                    </div>
                 <?php }
             }
         }
