@@ -283,7 +283,7 @@
   .services_list .service_description {
     color: #999999; }
 
-.about_me_title {
+.main_title {
   position: relative;
   margin-left: 30px;
   color: #6a6a6a;
@@ -291,7 +291,7 @@
   font-size: 36px;
   font-weight: 700;
   text-transform: uppercase; }
-  .about_me_title:before {
+  .main_title:before {
     content: "";
     position: absolute;
     display: block;
@@ -371,15 +371,18 @@
     right: -5px;
     position: absolute; }
 
+.portfolio_menu li:last-of-type {
+  content: none; }
+
 section {
   margin-bottom: 25px; }
 
-.portfolio_title {
+.portfolio_page_title {
   margin-top: 100px;
   position: relative;
   padding-left: 20px;
   color: #6a6a6a; }
-  .portfolio_title:after {
+  .portfolio_page_title:after {
     content: "";
     position: absolute;
     left: 5px;
@@ -423,3 +426,117 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%); }
+
+.last_img_gallary_wrapper {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+  width: 25%;
+  padding: 0;
+  margin: 0 -2px; }
+
+.portfolio_title {
+  font-family: "Roboto", sans-serif;
+  color: #6a6a6a;
+  font-size: 42px;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.portfolio_description {
+  color: #999999;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 400; }
+
+.last_img_gallary_box {
+  text-align: center; }
+  .last_img_gallary_box i {
+    font-size: 9px;
+    color: #e74c3c; }
+
+.price_list_box {
+  text-align: center; }
+  .price_list_box .price_dot {
+    font-size: 9px;
+    color: #e74c3c; }
+
+.price_wrapper {
+  position: relative; }
+
+.price_description_box {
+  background: #f4f5f9;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-top: -10px;
+  padding: 10px;
+  min-height: 350px; }
+  .price_description_box .price_description_text {
+    color: #999999;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 40px;
+    padding: 99px 0 38px 0; }
+
+.price_outter_circle {
+  display: block;
+  top: 0;
+  width: 174px;
+  height: 174px;
+  border-radius: 50%;
+  position: absolute;
+  background: #afafb0;
+  z-index: 1;
+  padding-top: 11px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  margin-top: 118px; }
+
+.price_inner_circle {
+  position: absolute;
+  background: #fff;
+  z-index: 3;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  left: 0;
+  right: 0;
+  top: 130px;
+  margin: 0 auto; }
+  .price_inner_circle span {
+    display: inline-block;
+    text-align: center;
+    margin-top: 18px;
+    color: #999999;
+    font-family: "Roboto", sans-serif;
+    font-size: 36px;
+    font-weight: bold; }
+
+.price_equal {
+  position: absolute;
+  font-size: 24px; }
+
+.col-xs-12:nth-child(odd) div.price_wrapper .price_name_box {
+  background: #999999; }
+
+.col-xs-12:nth-child(even) div.price_wrapper .price_name_box {
+  background: #e74c3c; }
+
+.col-xs-12:nth-child(even) div.price_wrapper .price_outter_circle {
+  background: #ea766b; }
+
+.price_title {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 50px 0 130px 0; }
+
+.cooperations {
+  background: #f4f5f9;
+  text-align: center; }
+  .cooperations i {
+    font-size: 9px;
+    color: #e74c3c; }

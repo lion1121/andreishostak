@@ -120,8 +120,8 @@ function openPortfolio()
             if ($url == 1 AND preg_match('/' . $name . '/', $_SERVER['REQUEST_URI']) == 1) {
                 $_SESSION["sub_cat_name"] = $name;
                 $_SESSION['sub_cat_id'] = $id;
-                header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
-                exit();
+//                header("Location:" . 'http://' . $_SERVER['HTTP_HOST'] . '/portfolio/');
+//                exit();
             }
         }
 
