@@ -112,7 +112,6 @@
                         'container' => '',
                         'menu_class' => 'portfolio_menu',
                         'theme_location' => 'portfolio',
-
                     )
 
                 ); ?>
@@ -130,7 +129,6 @@
             <ol class="indicator"></ol>
         </div>
         <?php
-
 
         $args = array(
             'cat' => '24'
@@ -157,10 +155,7 @@
 
             } ?>
         </div>
-
-
-        <?php wp_reset_postdata();; ?>
-
+       <?php wp_reset_postdata();; ?>
 
     </div>
 
@@ -200,7 +195,7 @@
 
                             </div>
                             <div class="price_inner_circle">
-                                <span><?php echo $value['price'][0];?></span>
+                                <span><?php echo $value['price'][0]; ?></span>
                             </div>
                             <div class="price_description_box">
                                 <p class="price_description_text"><?php echo get_the_content(); ?></p>
@@ -213,48 +208,83 @@
         }; ?>
         <?php wp_reset_postdata();; ?>
 
-
     </div>
 </section>
 <section class="container-fluid cooperations">
     <div class="container no_pd ">
         <div class="row">
             <h4 class="portfolio_title text-center">Сотрудничество с компаниями</h4>
-
             <i class="fa fa-circle price_dot"></i>
+        </div>
+        <div class="row no_mg">
+                <?php
+
+
+                $args = array(
+                    'cat' => '26'
+                );
+
+                $query = new WP_Query($args);
+                if ($query->have_posts()) {
+                    while ($query->have_posts()) {
+                        $query->the_post();
+                        $gallery = get_post_gallery_images($post);
+                        $posts = get_post($post->ID);
+                        $imageId = $posts->post_content;
+                        preg_match_all('/[0-9]{3}/', $imageId, $imageArrayId);
+                        foreach ($imageArrayId[0] as $imgcaprion) { ?>
+                            <div class="col-xs-3 center-block">
+                                <a href="<?php echo wp_get_attachment_caption($imgcaprion); ?>" target="_blank">
+                                    <img class="img-responsive"
+                                         src="<?php echo wp_get_attachment_image_src($imgcaprion)[0]; ?>" alt="">
+                                </a>
+                            </div>
+                        <?php }
+                    }
+                }
+
+                ?>
+
+                <?php wp_reset_postdata();; ?>
+            </div>
+    </div>
+    <div class="container contacts_box">
+        <div class="row">
+            <h4 class="text-center portfolio_title ">contacts</h4>
+            <i class="fa fa-circle contacit_dot"></i>
 
         </div>
         <div class="row no_mg">
-            <?php
+            <div class="col-xs-12 col-sm-6 adress_info">
+                <div class="widget_wrapper">
+                    <?php dynamic_sidebar('sidebar-1') ?>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 contact_form_box">
+                <form role="form" id="contactForm">
+
+                <div class="form-group col-sm-12">
+                    <label for="name" class="h4">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name" required>
+                </div>
+                <div class="form-group col-sm-12">
+                    <label for="email" class="h4">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                </div>
+                <div class="form-group col-xs-12">
+                    <label for="message" class="h4 ">Message</label>
+                    <textarea id="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
+                </div>
+                <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Submit</button>
+                <div id="msgSubmit" class="h3 text-center hidden">Message Submitted!</div>
+                </form>
+
+            </div>
 
 
-            $args = array(
-                'cat' => '26'
-            );
-
-            $query = new WP_Query($args);
-            if ($query->have_posts()) {
-            while ($query->have_posts()) {
-            $query->the_post();
-            $gallery = get_post_gallery_images($post); ?>
-
-                <?php foreach ($gallery as $img) { ?>
-
-                    <div class="last_img_gallary_wrapper">
-                        <span><?php echo get_post($post)->post_title;?></span>
-                        <a class="" href="#">
-                            <img src="<?php echo $img ?>" alt="" class="img-responsive ">
-                        </a>
-                    </div>
-                <?php }
-                }
-
-                } ?>
-
-
-            <?php wp_reset_postdata();; ?>
+            </div>
         </div>
-    </div>
 </section>
+
 <?php get_footer() ?>
 

@@ -340,12 +340,14 @@ section {
   }
 
 }
-.gallary_img_wrapper {
+.gallary_img_wrapper, .last_img_gallary_wrapper {
   position: relative;
+  z-index: 25;
 }
 .img_overlay {
   position: absolute;
   bottom: 0;
+  z-index: 22;
   left: 0;
   right: 0;
   background-color: $colorred;
@@ -359,6 +361,13 @@ section {
 
 .gallary_img_wrapper:hover .img_overlay {
   height: 30%;
+  z-index: 22;
+
+}
+.last_img_gallary_wrapper:hover {
+  position: relative;
+  background: $colorred;
+  opacity:0.5;
 }
 
 .gallary_img_wrapper i {
@@ -498,6 +507,51 @@ section {
 }
 .cooperations {
   background: #f4f5f9;
+  text-align: center;
+  i {
+    font-size: 9px;
+    color: $colorred;
+  }
+}
+.adress_info {
+  background: #fff;
+  padding: 99px 0 94px 91px;
+  text-align: left;
+}
+.adress_info_widget {
+  margin-top: 50px;
+  span {
+    display: inline-block;
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    color: $colorred;
+    font-weight: 600;
+    line-height: 24px;
+    text-transform: uppercase;
+  }
+  p {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: $colorgrey;
+    padding: 15px 0 0 0;
+  }
+    a {
+      margin-top: 15px;
+      display: inline-block;
+      @include color-link($colorgrey);
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+}
+
+.contact_form_box {
+  background: #fff;
+  padding: 99px 0 94px 91px;
+  text-align: left;
+}
+.contacts_box {
   text-align: center;
   i {
     font-size: 9px;

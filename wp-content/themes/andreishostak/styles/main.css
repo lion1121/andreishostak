@@ -397,12 +397,14 @@ section {
   color: #999999;
   text-align: justify; }
 
-.gallary_img_wrapper {
-  position: relative; }
+.gallary_img_wrapper, .last_img_gallary_wrapper {
+  position: relative;
+  z-index: 25; }
 
 .img_overlay {
   position: absolute;
   bottom: 0;
+  z-index: 22;
   left: 0;
   right: 0;
   background-color: #e74c3c;
@@ -414,7 +416,13 @@ section {
   cursor: pointer; }
 
 .gallary_img_wrapper:hover .img_overlay {
-  height: 30%; }
+  height: 30%;
+  z-index: 22; }
+
+.last_img_gallary_wrapper:hover {
+  position: relative;
+  background: #e74c3c;
+  opacity: 0.5; }
 
 .gallary_img_wrapper i {
   white-space: nowrap;
@@ -538,5 +546,50 @@ section {
   background: #f4f5f9;
   text-align: center; }
   .cooperations i {
+    font-size: 9px;
+    color: #e74c3c; }
+
+.adress_info {
+  background: #fff;
+  padding: 99px 0 94px 91px;
+  text-align: left; }
+
+.adress_info_widget {
+  margin-top: 50px; }
+  .adress_info_widget span {
+    display: inline-block;
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    color: #e74c3c;
+    font-weight: 600;
+    line-height: 24px;
+    text-transform: uppercase; }
+  .adress_info_widget p {
+    font-family: "Roboto", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #999999;
+    padding: 15px 0 0 0; }
+  .adress_info_widget a {
+    margin-top: 15px;
+    display: inline-block;
+    color: #999999; }
+    .adress_info_widget a:link {
+      text-decoration: none;
+      color: #999999; }
+    .adress_info_widget a:visited {
+      text-decoration: none;
+      color: #999999; }
+  .adress_info_widget:first-child {
+    margin-top: 0; }
+
+.contact_form_box {
+  background: #fff;
+  padding: 99px 0 94px 91px;
+  text-align: left; }
+
+.contacts_box {
+  text-align: center; }
+  .contacts_box i {
     font-size: 9px;
     color: #e74c3c; }

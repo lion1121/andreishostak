@@ -1,6 +1,7 @@
 <?php
 require get_template_directory() . '/inc/function-menu.php';
 require get_template_directory() . '/inc/function-walker.php';
+require get_template_directory() . '/inc/function-sidebar.php';
 /*
 ====================================================
 Include scripts

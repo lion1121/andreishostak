@@ -18,3 +18,23 @@ document.getElementById('links').onclick = function (event) {
         links = this.getElementsByTagName('a');
     blueimp.Gallery(links, options);
 };
+function submitForm(){
+    // Инициируем переменную с содержимым формы
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var message = $("#message").val();
+
+    $.ajax({
+        type: "POST",
+        url: "send_email.php",
+        data: "name=" + name + "&email=" + email + "&message=" + message,
+        success : function(text){
+            if (text == "success"){
+                formSuccess();
+            }
+        }
+    });
+}
+function formSuccess(){
+    $( "#msgSubmit" ).removeClass( "hidden" );
+}
