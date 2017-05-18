@@ -593,3 +593,35 @@ section {
   .contacts_box i {
     font-size: 9px;
     color: #e74c3c; }
+
+.footer_wrapper {
+  background-color: #202020;
+  padding: 20px 0; }
+
+.develoder {
+  text-align: right;
+  color: #6a6a6a; }
+  .develoder a {
+    color: #e74c3c; }
+    .develoder a:link {
+      text-decoration: none;
+      color: #e74c3c; }
+    .develoder a:visited {
+      text-decoration: none;
+      color: #e74c3c; }
+
+.social_acons_widget a {
+  color: #e74c3c; }
+  .social_acons_widget a:link {
+    text-decoration: none;
+    color: #e74c3c; }
+  .social_acons_widget a:visited {
+    text-decoration: none;
+    color: #e74c3c; }
+  .social_acons_widget a:hover {
+    color: #999999;
+    transition: 1s; }
+
+.social_acons_widget i {
+  padding-right: 10px;
+  font-size: 20px; }

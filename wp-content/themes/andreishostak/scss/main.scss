@@ -558,3 +558,27 @@ section {
     color: $colorred;
   }
 }
+.footer_wrapper {
+  background-color: #202020;
+  padding: 20px 0;
+}
+.develoder {
+  text-align: right;
+  color: $colordarkgrey;
+  a {
+    @include color-link($colorred);
+  }
+}
+.social_acons_widget {
+  a {
+    @include color-link($colorred);
+      &:hover {
+        color: $colorgrey;
+        transition: 1s;
+      }
+  }
+  i {
+    padding-right: 10px;
+    font-size: 20px;
+  }
+}

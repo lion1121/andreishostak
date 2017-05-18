@@ -261,19 +261,19 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 contact_form_box">
-                <form role="form" id="contactForm">
+                <form role="form" id="contactForm" method="post">
 
                 <div class="form-group col-sm-12">
                     <label for="name" class="h4">Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter name" required>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter name" required>
                 </div>
                 <div class="form-group col-sm-12">
                     <label for="email" class="h4">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
                 </div>
                 <div class="form-group col-xs-12">
                     <label for="message" class="h4 ">Message</label>
-                    <textarea id="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
+                    <textarea id="message" name="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
                 </div>
                 <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Submit</button>
                 <div id="msgSubmit" class="h3 text-center hidden">Message Submitted!</div>
