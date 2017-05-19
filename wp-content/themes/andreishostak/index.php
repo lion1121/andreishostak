@@ -65,7 +65,7 @@
 </section>
 <section class="container no_pd">
     <div class="row no_mg">
-        <div class="col-xs-12 no_pd">
+        <div class="col-xs-12 no_pd" id="menu-item-299Section">
 
             <h4 class="main_title"><?php echo get_cat_name(3); ?></h4>
             <?php
