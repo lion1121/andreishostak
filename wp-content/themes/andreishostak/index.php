@@ -100,7 +100,7 @@
 </section>
 <section class="container_fluid no_pd ">
     <div class="row no_mg">
-        <div class="col-xs-12 last_img_gallary_box no_pd">
+        <div class="col-xs-12 last_img_gallary_box no_pd" id="menu-item-300Section">
             <h4 class="text-center portfolio_title">Портфолио</h4>
             <p class="text-center portfolio_description">Здесь предоставлены некоторые из моих работ, подробнее смотрите
                 в категориях.</p>
@@ -110,8 +110,9 @@
 
                     array(
                         'container' => '',
-                        'menu_class' => 'portfolio_menu',
+                        'menu_class' => 'portfolio_menu nav nav-menu',
                         'theme_location' => 'portfolio',
+                        'walker' => new Walker_Nav_Primary(),
                     )
 
                 ); ?>
@@ -119,48 +120,50 @@
         </div>
     </div>
     <div class="row no_mg">
-        <div id="blueimp-gallery" class="blueimp-gallery">
-            <div class="slides"></div>
-            <h3 class="title"></h3>
-            <a class="prev">‹</a>
-            <a class="next">›</a>
-            <a class="close">×</a>
-            <a class="play-pause"></a>
-            <ol class="indicator"></ol>
-        </div>
-        <?php
+        <div class="tab-content">
+            <div id="blueimp-gallery" class="blueimp-gallery">
+                <div class="slides"></div>
+                <h3 class="title"></h3>
+                <a class="prev">‹</a>
+                <a class="next">›</a>
+                <a class="close">×</a>
+                <a class="play-pause"></a>
+                <ol class="indicator"></ol>
+            </div>
+            <div id="links" class="links">
+            <?php
 
-        $args = array(
-            'cat' => '24'
-        );
+            $args = array(
+                'cat' => '27,20,22,19,21,23',
+                'numberposts' => -1
+            );
+            $posts = get_posts($args);
 
-        $query = new WP_Query($args);
-        if ($query->have_posts()) {
-        while ($query->have_posts()) {
-        $query->the_post();
-        $gallery = get_post_gallery_images($post); ?>
-        <div id="links">
+            foreach ($posts as $post) {
+                setup_postdata($post); ?>
+                <div class="tab-pane fade" id="<?php the_ID()?>">
 
-            <?php foreach ($gallery as $img) { ?>
-                <div class="last_img_gallary_wrapper">
-                    <a class="" href="<?php echo $img ?>">
-                        <img src="<?php echo $img ?>" alt="" class="img-responsive ">
-                    </a>
-                    <div class="img_overlay">
-                        <span><i class="fa fa-eye" aria-hidden="true"></i></span>
+                    <?php $imgUrl = get_post_gallery_images($post); ?>
+                    <?php foreach ($imgUrl as $img): ; ?>
+
+                    <div class="last_img_gallary_wrapper">-->
+                        <a class="" href="<?php echo $img ?>">
+                            <img src="<?php echo $img ?>" alt="" class="img-responsive ">
+                        </a>
+                        <div class="img_overlay">
+                            <span><i class="fa fa-eye" aria-hidden="true"></i></span>
+                        </div>
                     </div>
+                    <?php endforeach;?>
                 </div>
-            <?php }
-            }
 
-            } ?>
+            <?php };?>
+            </div>
         </div>
-       <?php wp_reset_postdata();; ?>
-
+        <?php wp_reset_postdata();; ?>
     </div>
-
 </section>
-<section class="container no_pd price_list_box">
+<section class="container no_pd price_list_box" id="menu-item-301Section">
     <div class="row">
         <h4 class="portfolio_title text-center">ЦЕНЫ НА УСЛУГИ</h4>
         <p class="portfolio_description text-center">Может меняться в зависимости от сезона, актуальные цены и цены на
@@ -211,44 +214,44 @@
     </div>
 </section>
 <section class="container-fluid cooperations">
-    <div class="container no_pd ">
+    <div class="container no_pd " id="menu-item-302Section">
         <div class="row">
             <h4 class="portfolio_title text-center">Сотрудничество с компаниями</h4>
             <i class="fa fa-circle price_dot"></i>
         </div>
         <div class="row no_mg">
-                <?php
+            <?php
 
 
-                $args = array(
-                    'cat' => '26'
-                );
+            $args = array(
+                'cat' => '26'
+            );
 
-                $query = new WP_Query($args);
-                if ($query->have_posts()) {
-                    while ($query->have_posts()) {
-                        $query->the_post();
-                        $gallery = get_post_gallery_images($post);
-                        $posts = get_post($post->ID);
-                        $imageId = $posts->post_content;
-                        preg_match_all('/[0-9]{3}/', $imageId, $imageArrayId);
-                        foreach ($imageArrayId[0] as $imgcaprion) { ?>
-                            <div class="col-xs-3 center-block">
-                                <a href="<?php echo wp_get_attachment_caption($imgcaprion); ?>" target="_blank">
-                                    <img class="img-responsive"
-                                         src="<?php echo wp_get_attachment_image_src($imgcaprion)[0]; ?>" alt="">
-                                </a>
-                            </div>
-                        <?php }
-                    }
+            $query = new WP_Query($args);
+            if ($query->have_posts()) {
+                while ($query->have_posts()) {
+                    $query->the_post();
+                    $gallery = get_post_gallery_images($post);
+                    $posts = get_post($post->ID);
+                    $imageId = $posts->post_content;
+                    preg_match_all('/[0-9]{3}/', $imageId, $imageArrayId);
+                    foreach ($imageArrayId[0] as $imgcaprion) { ?>
+                        <div class="col-xs-3 center-block">
+                            <a href="<?php echo wp_get_attachment_caption($imgcaprion); ?>" target="_blank">
+                                <img class="img-responsive"
+                                     src="<?php echo wp_get_attachment_image_src($imgcaprion)[0]; ?>" alt="">
+                            </a>
+                        </div>
+                    <?php }
                 }
+            }
 
-                ?>
+            ?>
 
-                <?php wp_reset_postdata();; ?>
-            </div>
+            <?php wp_reset_postdata();; ?>
+        </div>
     </div>
-    <div class="container contacts_box">
+    <div class="container contacts_box" id="menu-item-303Section">
         <div class="row">
             <h4 class="text-center portfolio_title ">contacts</h4>
             <i class="fa fa-circle contacit_dot"></i>
@@ -263,27 +266,29 @@
             <div class="col-xs-12 col-sm-6 contact_form_box">
                 <form role="form" id="contactForm" method="post">
 
-                <div class="form-group col-sm-12">
-                    <label for="name" class="h4">Name</label>
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Enter name" required>
-                </div>
-                <div class="form-group col-sm-12">
-                    <label for="email" class="h4">Email</label>
-                    <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
-                </div>
-                <div class="form-group col-xs-12">
-                    <label for="message" class="h4 ">Message</label>
-                    <textarea id="message" name="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
-                </div>
-                <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Submit</button>
-                <div id="msgSubmit" class="h3 text-center hidden">Message Submitted!</div>
+                    <div class="form-group col-sm-12">
+                        <label for="name" class="h4">Name</label>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter name" required>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="email" class="h4">Email</label>
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Enter email"
+                               required>
+                    </div>
+                    <div class="form-group col-xs-12">
+                        <label for="message" class="h4 ">Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="5"
+                                  placeholder="Enter your message" required></textarea>
+                    </div>
+                    <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Submit</button>
+                    <div id="msgSubmit" class="h3 text-center hidden">Сообщение отправлено, я с Вами свяжусь!</div>
                 </form>
 
             </div>
 
 
-            </div>
         </div>
+    </div>
 </section>
 
 <?php get_footer() ?>

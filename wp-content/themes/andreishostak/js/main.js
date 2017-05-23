@@ -52,13 +52,31 @@ $(document).ready(function () {
   $(document).scroll(function () {
       var headerHeight = $('.main_menu_wrapper').height();
       var windowTop = $(window).scrollTop();
-      // var topOffset = windowTop - headerHeight;
-        if(windowTop > headerHeight && $(window).offsetTop !== 0 ) {
+        if(windowTop > headerHeight && windowTop !== 0 ) {
             $('header').css('opacity','0.9');
         }
-         if ($(window).offsetTop === 0) {
+         else {
             $('header').css('opacity','0.5');
+
         }
+
   })
 });
 
+
+
+$(document).ready(function () {
+   $('.links > div:nth-child(1)').addClass('in active') ;
+});
+
+$(document).ready(function () {
+    var windowHeight = $(window).height();
+    if ($(window).scrollTop === windowHeight - 600) {
+       $('.to_top').css('display', 'none');
+    }
+    $('.to_top').click(function () {
+        $("html, body").animate({
+            scrollTop: $('body').offset().top
+        }, 1000)
+    })
+});

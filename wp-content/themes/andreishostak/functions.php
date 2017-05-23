@@ -18,6 +18,8 @@ function andreishostak_script_enqueue()
     wp_enqueue_script('slick_js', get_template_directory_uri() . '/slick-1.6.0/slick/slick.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('image-fallary-js', get_template_directory_uri() . '/blueimp-Bootstrap-Image-Gallery/js/blueimp-gallery.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('custom_js', get_template_directory_uri() . '/js/main.js', array('jquery'), '1.0.0', true);
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array('jquery'), '1.0.0', true);
+
 
 
 }

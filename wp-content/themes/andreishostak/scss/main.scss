@@ -300,12 +300,12 @@
       font-weight: 700;
       font-family: 'Open Sans', sans-serif;
     }
-    &:after {
-      content: "/";
-      color: $colordarkgrey;
-      right: -5px;
-      position: absolute;
-    }
+    //&:after {
+    //  content: "/";
+    //  color: $colordarkgrey;
+    //  right: -5px;
+    //  position: absolute;
+    //}
 
   }
 
@@ -582,4 +582,33 @@ section {
     padding-right: 10px;
     font-size: 20px;
   }
+}
+
+.tab-content .links > .tab-pane {
+  display: none;
+}
+
+.tab-content .links > .active {
+  display: block;
+}
+
+.to_top {
+  position: fixed;
+  right:40px;
+  bottom: 50px;
+  background: $colorred;
+  width: 70px;;
+  height:45px;
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  opacity: 0.8;
+  z-index:99999;
+    i {
+      color: #fff;
+      font-size: 30px;
+    }
+    &:hover {
+      opacity: 1;
+    }
 }

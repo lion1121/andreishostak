@@ -365,11 +365,6 @@
     .portfolio_menu li a:visited {
       text-decoration: none;
       color: #6a6a6a; }
-  .portfolio_menu li:after {
-    content: "/";
-    color: #6a6a6a;
-    right: -5px;
-    position: absolute; }
 
 .portfolio_menu li:last-of-type {
   content: none; }
@@ -626,3 +621,27 @@ section {
 .social_acons_widget i {
   padding-right: 10px;
   font-size: 20px; }
+
+.tab-content .links > .tab-pane {
+  display: none; }
+
+.tab-content .links > .active {
+  display: block; }
+
+.to_top {
+  position: fixed;
+  right: 40px;
+  bottom: 50px;
+  background: #e74c3c;
+  width: 70px;
+  height: 45px;
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  opacity: 0.8;
+  z-index: 99999; }
+  .to_top i {
+    color: #fff;
+    font-size: 30px; }
+  .to_top:hover {
+    opacity: 1; }

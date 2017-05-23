@@ -1,3 +1,6 @@
+<div class="to_top">
+    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+</div>
 <div class="container-fluid footer_wrapper">
     <div class="container">
         <div class="row no_mg">

@@ -32,8 +32,9 @@ class Walker_Nav_Primary extends Walker_Nav_Menu {
         $attributes .= ! empty($item->target) ? ' target="'. esc_attr($item->target) .'"': '';
         $attributes .= ! empty($item->xfn) ? ' rel="'. esc_attr($item->xfn) .'"': '';
         $attributes .= ! empty($item->url) ? ' href="'. esc_attr($item->url) .'"': '';
+        $attributes .= ! empty($item->toggle) ? ' data-toggle="tab"': '';
 
-        $attributes .=  empty($args->has_children) ? ' class="dropdown-toggle" data-toggle="dropdown"': '';
+        $attributes .=  empty($args->has_children) ? ' class="dropdown-toggle" data-toggle="tab"': '';
         $item_output = $args->before;
         $item_output .='<a' . $attributes . '>';
         $item_output.= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
