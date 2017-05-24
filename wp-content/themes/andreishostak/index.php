@@ -86,8 +86,7 @@
                     <div class="col-xs-12 col-sm-6">
                         <?php if (!has_post_thumbnail()):; ?>
                             <div class="about_me_text"><?php echo get_the_content(); ?></div>
-                            <button class="btn btn-default see_all_works"><a href="http://andrei/portfolio/">Посмотреть
-                                    мои работы</a></button>
+
                         <?php endif; ?>
                     </div>
 
@@ -236,7 +235,7 @@
                     $imageId = $posts->post_content;
                     preg_match_all('/[0-9]{3}/', $imageId, $imageArrayId);
                     foreach ($imageArrayId[0] as $imgcaprion) { ?>
-                        <div class="col-xs-3 center-block">
+                        <div class="partner_box_img ">
                             <a href="<?php echo wp_get_attachment_caption($imgcaprion); ?>" target="_blank">
                                 <img class="img-responsive"
                                      src="<?php echo wp_get_attachment_image_src($imgcaprion)[0]; ?>" alt="">
@@ -267,20 +266,20 @@
                 <form role="form" id="contactForm" method="post">
 
                     <div class="form-group col-sm-12">
-                        <label for="name" class="h4">Name</label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter name" required>
+                        <label for="name" class="h4">Ваше имя</label>
+                        <input type="text" name="name" class="form-control" id="name" placeholder="Введите Ваше имя" required>
                     </div>
                     <div class="form-group col-sm-12">
                         <label for="email" class="h4">Email</label>
-                        <input type="email" name="email" class="form-control" id="email" placeholder="Enter email"
+                        <input type="email" name="email" class="form-control" id="email" placeholder="Введите Ваш email"
                                required>
                     </div>
                     <div class="form-group col-xs-12">
-                        <label for="message" class="h4 ">Message</label>
+                        <label for="message" class="h4 ">Сообщение</label>
                         <textarea id="message" name="message" class="form-control" rows="5"
-                                  placeholder="Enter your message" required></textarea>
+                                  placeholder="Напишите Ваше сообщение" required></textarea>
                     </div>
-                    <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Submit</button>
+                    <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Отправить</button>
                     <div id="msgSubmit" class="h3 text-center hidden">Сообщение отправлено, я с Вами свяжусь!</div>
                 </form>
 

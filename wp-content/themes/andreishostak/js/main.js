@@ -80,3 +80,16 @@ $(document).ready(function () {
         }, 1000)
     })
 });
+
+$(document).ready(function () {
+   $('.menu_btn').click(function () {
+       $(this).toggleClass('change');
+       $('.menu_container').toggleClass('show_menu');
+       if($('.menu_container').is(':visible')) {
+           $('.menu_container a').click(function () {
+               $('.menu_container').removeClass('show_menu');
+               $('.menu_btn').removeClass('change');
+           })
+       }
+   }) ;
+});

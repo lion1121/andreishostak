@@ -633,9 +633,9 @@ section {
   right: 40px;
   bottom: 50px;
   background: #e74c3c;
-  width: 70px;
+  width: 50px;
   height: 45px;
-  padding: 8px;
+  padding: 6px;
   cursor: pointer;
   text-align: center;
   opacity: 0.8;
@@ -645,3 +645,92 @@ section {
     font-size: 30px; }
   .to_top:hover {
     opacity: 1; }
+
+.partner_box_img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 20%;
+  font-size: 0;
+  margin-top: 15px; }
+
+#contactForm button {
+  margin-right: 15px;
+  background: #e74c3c !important;
+  outline: 0;
+  border-color: transparent; }
+
+.menu_btn {
+  display: none;
+  cursor: pointer; }
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #fff;
+  margin: 6px 0;
+  transition: 0.4s; }
+
+/* Rotate first bar */
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px); }
+
+/* Fade out the second bar */
+.change .bar2 {
+  opacity: 0; }
+
+/* Rotate last bar */
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px); }
+
+@media screen and (max-width: 1024px) {
+  .name_occupation_box {
+    top: 200px; }
+    .name_occupation_box h3 {
+      font-size: 50px; }
+    .name_occupation_box h4 {
+      font-size: 45px; } }
+
+@media screen and (max-width: 769px) {
+  .main_menu_wrapper {
+    display: block;
+    padding: 10px 0; }
+  .menu_container {
+    display: none; }
+  .menu_btn {
+    display: inline-block;
+    float: right;
+    position: relative;
+    margin: 6px 20px 0 0; }
+  .logo_box {
+    margin: 0 0 0 20px; }
+  .show_menu {
+    display: block;
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    opacity: 1; }
+  .menu_container {
+    text-align: center; }
+    .menu_container ul {
+      width: 100%;
+      padding: 0;
+      margin: 0; }
+    .menu_container li {
+      display: block; }
+  .portfolio_menu {
+    width: 100%; }
+    .portfolio_menu li {
+      width: 100%;
+      display: block;
+      padding: 10px; }
+  .last_img_gallary_wrapper {
+    width: 33.3%; }
+  .price_wrapper {
+    padding: 0 120px; } }
+
+@media screen and (orientation: landscape) {
+  .menu li {
+    padding: 20px 10px; } }

@@ -9,7 +9,7 @@
     <?php wp_head(); ?>
 </head>
 <body>
-<header class="main_menu_wrapper">
+<header class="main_menu_wrapper clearfix">
     <div class="container no_pd">
         <div class="col-xs-3 no_pd logo_box">
             <?php $logo = get_custom_logo();?>
@@ -19,7 +19,7 @@
                 <a href="http://andrei/"><img src="<?php echo get_template_directory_uri(); ?>/img/default_logo.png" alt=""></a>
             <?php endif;?>
         </div>
-        <nav class="col-xs-9 no_pd">
+        <nav class="col-xs-9 no_pd menu_container">
             <?php wp_nav_menu(
 
                 array(
@@ -31,5 +31,10 @@
 
             ); ?>
         </nav>
+        <div class="menu_btn">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
     </div>
 </header>
