@@ -86,6 +86,7 @@ $(document).ready(function () {
        $(this).toggleClass('change');
        $('.menu_container').toggleClass('show_menu');
        if($('.menu_container').is(':visible')) {
+           $('header').css('opacity','0.9');
            $('.menu_container a').click(function () {
                $('.menu_container').removeClass('show_menu');
                $('.menu_btn').removeClass('change');

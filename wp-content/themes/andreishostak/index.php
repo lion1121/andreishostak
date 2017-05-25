@@ -41,7 +41,7 @@
 
     </div>
 </section>
-<section class="container no_pd">
+<section class="container no_pd service_wrapper">
     <div class="row no_mg">
         <?php
         $args = array_reverse(array(
@@ -164,11 +164,12 @@
 </section>
 <section class="container no_pd price_list_box" id="menu-item-301Section">
     <div class="row">
+        <div class="col-xs-12">
         <h4 class="portfolio_title text-center">ЦЕНЫ НА УСЛУГИ</h4>
         <p class="portfolio_description text-center">Может меняться в зависимости от сезона, актуальные цены и цены на
             рекламную съемку уточняйте по телефону.</p>
         <i class="fa fa-circle price_dot"></i>
-
+        </div>
     </div>
     <div class="row no_mg">
 
@@ -252,7 +253,7 @@
     </div>
     <div class="container contacts_box" id="menu-item-303Section">
         <div class="row">
-            <h4 class="text-center portfolio_title ">contacts</h4>
+            <h4 class="text-center portfolio_title ">Контакты</h4>
             <i class="fa fa-circle contacit_dot"></i>
 
         </div>

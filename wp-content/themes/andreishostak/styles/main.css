@@ -9,10 +9,11 @@
   position: fixed;
   background: #000;
   opacity: 0.5;
-  z-index: 99999; }
+  z-index: 99999;
+  padding: 10px 0; }
 
 .logo_box {
-  margin-top: 10px; }
+  margin-top: 5px; }
 
 /*--------------------------------------------------------*/
 .menu {
@@ -729,7 +730,92 @@ section {
   .last_img_gallary_wrapper {
     width: 33.3%; }
   .price_wrapper {
-    padding: 0 120px; } }
+    padding: 0 120px;
+    margin-top: 25px; }
+  .slider-img-wrapper .camera_box {
+    width: 80px;
+    height: 80px;
+    bottom: 10px; }
+  .slider-img-wrapper .camera_box .fa {
+    font-size: 45px;
+    margin-top: 16px; }
+  .name_occupation_box {
+    top: 114px; }
+  .services_list {
+    margin-top: 15px; }
+  .main_title, .portfolio_title {
+    font-size: 33px; }
+  .main_title::before {
+    top: 2px;
+    left: -15px; }
+  .adress_info, .contact_form_box {
+    padding: 25px 0 25px 0; }
+  .contact_form_box {
+    margin-bottom: 25px; }
+  .widget_wrapper {
+    text-align: center; }
+  .develoder {
+    text-align: center;
+    padding-top: 15px; }
+  .name_occupation_box h3 {
+    font-size: 35px; }
+  .name_occupation_box h4 {
+    font-size: 30px; }
+  .service_wrapper {
+    margin-top: -20px; }
+  .slider-img-wrapper .slider_left_triangle {
+    bottom: -100px; }
+  .slider-img-wrapper .slider_right_triangle {
+    bottom: -100px; } }
+
+@media screen and (max-width: 540px) {
+  .name_occupation_box {
+    top: 70px; }
+    .name_occupation_box h3 {
+      font-size: 30px; }
+    .name_occupation_box h4 {
+      font-size: 28px; }
+  .main_slider .slick-prev, .slick-next {
+    width: 30px;
+    height: 30px; }
+  .slick-prev::before, .slick-prev::before {
+    width: 30px;
+    height: 30px; }
+  .slick-next::before, .slick-next::before {
+    width: 30px;
+    height: 30px; }
+  .about_me_text {
+    text-align: justify; }
+  .price_wrapper {
+    padding: 0 40px; }
+  .slider-img-wrapper .camera_box {
+    width: 50px;
+    height: 50px;
+    bottom: 0; }
+  .slider-img-wrapper .camera_box .fa {
+    font-size: 25px;
+    margin-top: 12px; }
+  .slider-img-wrapper .slider_left_triangle {
+    bottom: -128px; }
+  .slider-img-wrapper .slider_right_triangle {
+    bottom: -128px; }
+  .last_img_gallary_wrapper {
+    width: 50%; } }
+
+@media screen and (max-width: 480px) {
+  .main_menu_wrapper {
+    padding: 5px 0; }
+  .name_occupation_box {
+    top: 55px; }
+  .name_occupation_box h3 {
+    font-size: 20px; }
+  .name_occupation_box h4 {
+    margin-top: 14px;
+    font-size: 19px; }
+  .about_me_text {
+    font-size: 16px; }
+  .price_wrapper, .contacts_box {
+    padding: 0; } }
 
 @media screen and (orientation: landscape) {
   .menu li {
